@@ -214,6 +214,17 @@ Currently, supported values: ``cloudflare``, ``aws_cloudfront``. Default value i
 As a client, you may use an insecure endpoint like ``ws://127.0.0.1/proxy`` by specifying ``"insecure": true``,
 however it's strongly discouraged.
 
+#### Custom DNS server
+
+As a client, you may specify an address of custom DNS, to resolve the IP address of your endpoint. This can be useful,
+if your default resolver does not reply the best DNS records of your CDN provider. And you will not mess up your
+system configurations.
+
+The configuration key is ``client_resolver``, and the format of value is ``protocol://ip_address:port``.
+Valid protocols: ``udp``, ``tcp``.
+
+Example: ``udp://127.0.0.1:5353``.
+
 ## Compiling and running
 
 To compile:

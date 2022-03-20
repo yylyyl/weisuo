@@ -25,6 +25,7 @@ var remoteAddrKey = &remoteAddrMarker{}
 func runClientHttp() {
 	dialer := protocol.DefaultDialer()
 	dialer.LogLevel = logger.GetLevel(cfg.LogLevel)
+	dialer.WsDialer.NetDialContext = getClientResolverDialer()
 
 	s := &HttpProxyServer{}
 	s.server = &http.Server{

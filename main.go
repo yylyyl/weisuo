@@ -25,6 +25,7 @@ type Config struct {
 	ServerPreset      string `json:"server_preset"`
 	SpeedTestEndpoint string `json:"speedtest_endpoint"`
 	ClientPool        uint   `json:"client_pool"`
+	ClientResolver    string `json:"client_resolver"`
 }
 
 const (

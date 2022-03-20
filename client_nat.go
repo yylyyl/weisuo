@@ -20,6 +20,8 @@ type NatServer struct {
 func runClientNat() {
 	dialer := protocol.DefaultDialer()
 	dialer.LogLevel = logger.GetLevel(cfg.LogLevel)
+	dialer.WsDialer.NetDialContext = getClientResolverDialer()
+
 	s := &NatServer{
 		pool: pool.MakePool(cfg.Endpoint, cfg.Key, cfg.ClientPool, dialer),
 	}
